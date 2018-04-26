@@ -63,14 +63,14 @@ divide = 2 / 1
 
 ### Logical Operators
 
-The logical `AND` operator `(&&)`` returns the boolean value true if both operands are true and returns false otherwise.
+The logical `AND` operator returns the boolean value true if both operands are true and returns false otherwise.
 
 ```
 if 1 == 1 and 1 != 2:
     pass
 ```
 
-The logical `OR` operator `(||)`` returns the boolean value true if either or both operands is true and returns false otherwise.
+The logical `OR` operator returns the boolean value true if either or both operands is true and returns false otherwise.
 
 ```
 if 1 == 1 or 1 == 2:
@@ -93,7 +93,7 @@ else:
 #### Functions Syntax
 
 - Function Definition.
-``` 
+```
 def sum(number1, number2):
     return number1 + number2
 ```
