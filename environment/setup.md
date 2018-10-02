@@ -1,4 +1,4 @@
-## Phase 1 - Initial Setup
+## Phase 1 - Environment Setup
 
 The first phase though its primary goal is to help you in the configuration of services & tools used in our day-to day tasks, is to start getting familiar with `bash` and `shell` terminal.
 
@@ -81,30 +81,13 @@ Once installation completed, load the settings file into your local engine; `mon
 
 --------
 
-### Apps and Binaries
-
-**DB Restore**
-
-First update the shell `pip` command version, run: `curl https://bootstrap.pypa.io/get-pip.py | python`.
-
-By the default mac os x has apache installed, so it's index directory will be used for now as the apps root path.
-
-- Create `Rigs/` folder inside `/Library/WebServer/Documents/`
-- Copy the `<source-folder>/apps/db_restore` folder into `Rigs` folder.
-- Inside the `db_restore` folder, run `pip install virtualenv`.
-
-**db bin**
-
-Add the `bin` folder into the `PATH` environment vairable.
-
---------
-
-### Commands setup
+### Useful Services & Tools
 
 - Install `GIT`
 - Install `nodejs - npm`
 - Install `aws-cli`
 - Install `brew`
+
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -113,12 +96,7 @@ Add the `bin` folder into the `PATH` environment vairable.
 
 ## To learn
 
-**Concepts**
-
 - ssh
-
-**Shell Commands**
-
 - man
 - ls
 - ln
