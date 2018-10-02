@@ -1,8 +1,10 @@
 ## Phase 1 - Initial Setup
 
-The first phase will help you to Configure the needed services & tools that we use in our day-to day tasks.
+The first phase though its primary goal is to help you in the configuration of services & tools used in our day-to day tasks, is to start getting familiar with `bash` and `shell` terminal.
 
-Also, at-the bottom of this document, there's the `To Learn` Section, which lists concepts and shell commands used in this configuration roadmap.
+The setup MUST be completed using the shell terminal.
+
+At-the bottom of this document, you will find the `To Learn` Section, which lists concepts and shell commands used in this configuration roadmap.
 
 ### Setup software stack
 
@@ -16,8 +18,11 @@ Recommended software list.
 
 ### Sublime Text Setup
 
-**Activate Spacegray Them**
+One of our favorite feats from sublime are the Them, so our recommendation is the `Spacegray Them`
 
+To install it, first install the [package control](https://packagecontrol.io/installation), then search for this them using the `install package` option
+
+Add this to user settings as part of the JSON.
 ```
 "theme": "Spacegray.sublime-theme",
 "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme"
@@ -48,10 +53,9 @@ Now, the admin has to add the key to bitbucket, and then you can start clonning.
 
 **Rigs Credentials**
 
-Open the terminal and from the root path create the `.rigs` folder; `mkdir ~/.rigs`
-Copy the 2 files from `config` folder inside the previous created.
-
-If you list the contents from `~/.rigs`, it has to display; `config.sh credentials`.
+- Open the terminal and from the root path create the `.rigs` folder; `mkdir ~/.rigs`
+- Copy the 2 files from `config` folder inside the previous one created.
+- If you list the contents from `~/.rigs`, it has to display; `config.sh credentials`.
 
 **Environment Variables & Aliases Setup**
 
