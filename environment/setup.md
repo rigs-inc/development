@@ -2,9 +2,12 @@
 
 The first phase though its primary goal is to help you in the configuration of services & tools used in our day-to day tasks, is to start getting familiar with `bash` and `shell` terminal.
 
-The setup MUST be completed using the shell terminal.
-
 At-the bottom of this document, you will find the `To Learn` Section, which lists concepts and shell commands used in this configuration roadmap.
+
+### Requirements
+
+- The setup MUST be completed using the shell terminal.
+- Your tech lead must provide you, with all the source files used in this setup.
 
 ### Setup software stack
 
@@ -54,7 +57,7 @@ Now, the admin has to add the key to bitbucket, and then you can start clonning.
 **Rigs Credentials**
 
 - Open the terminal and from the root path create the `.rigs` folder; `mkdir ~/.rigs`
-- Copy the 2 files from `config` folder inside the previous one created.
+- Copy the 2 files from `<source-folder>/config` folder inside the previous one created.
 - If you list the contents from `~/.rigs`, it has to display; `config.sh credentials`.
 
 **Environment Variables & Aliases Setup**
@@ -64,7 +67,7 @@ Open the terminal and create the `.bash_profile`. Assuming that you had installe
 - Create local bin folder `mkdir /usr/local/bin`
 - Create symlink `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl`
 
-Now just run `subl ~/.bash_profile`, then copy the contents from `bin/bash_profile`.
+Now just run `subl ~/.bash_profile`, then copy the contents from `<source-folder>/bin/bash_profile`.
 
 Once completed the previous step, run `source ~/.bash_profile`
 
@@ -74,7 +77,7 @@ Once completed the previous step, run `source ~/.bash_profile`
 
 To install MongoDB follow this [instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
-Once installation completed, load the settings file into your local engine; `mongo < mongo_configuration.js`
+Once installation completed, load the settings file into your local engine; `mongo < <source-folder>/mongo/mongo_configuration.js`
 
 --------
 
@@ -87,7 +90,7 @@ First update the shell `pip` command version, run: `curl https://bootstrap.pypa.
 By the default mac os x has apache installed, so it's index directory will be used for now as the apps root path.
 
 - Create `Rigs/` folder inside `/Library/WebServer/Documents/`
-- Copy the `apps/db_restore` folder into `Rigs` folder.
+- Copy the `<source-folder>/apps/db_restore` folder into `Rigs` folder.
 - Inside the `db_restore` folder, run `pip install virtualenv`.
 
 **db bin**
