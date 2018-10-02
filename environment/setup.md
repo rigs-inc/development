@@ -66,10 +66,11 @@ Once completed the previous step, run `source ~/.bash_profile`
 
 --------
 
-### Mongo Setup
+### MongoDB Setup
 
-To install MongoDB follow this [instructions](`https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/`)
-- Load the mongo settings into your local engine; `mongo < mongo_configuration.js`
+To install MongoDB follow this [instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+
+Once installation completed, load the settings file into your local engine; `mongo < mongo_configuration.js`
 
 --------
 
