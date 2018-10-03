@@ -27,7 +27,7 @@ done
 SECRET_KEY="wqe2e2wsq"
 ROOT_PATH="/Library/WebServer/Documents/Rigs"
 APP_NAME="$(echo "$application" | awk '{print toupper($0)}')"
-PYTHON_APP_PATH=$application/app
+PYTHON_APP_PATH=$ROOT_PATH/$application/app
 CONFIG_PATH=$PYTHON_APP_PATH/conf
 MODULE_PATH=$PYTHON_APP_PATH/modules
 ENVAR="ENVIRONMENT"
@@ -56,6 +56,8 @@ Application Architecture
 - app.wsgi
 - app/__init__.py
 - app/application.py
+- app/conf/__init__.py
+- app/conf/config.py 
 - app/modules/__init__.py
 - app/modules/home.py
 
@@ -107,11 +109,12 @@ printf "# -*- encoding: utf-8 -*-
 import os
 from flask import Flask
 from flask_cors import CORS
+from conf.config import Config
 from modules.${HOME_MODULE} import ${HOME_MODULE}
 
 
 application = Flask(__name__)
-
+application.config.from_object(Config)
 CORS(application, origins=application.config['CORS_ORIGINS'])
 
 application.register_blueprint(${HOME_MODULE}, url_prefix='/${HOME_MODULE}')
@@ -126,6 +129,44 @@ printf "from application import application
 if __name__ == '__main__':
     application.run(port=application.config['PORT'])
 " >> $PYTHON_APP_PATH/__init__.py
+
+# Create config path & python file
+mkdir -p $CONFIG_PATH &&
+touch $CONFIG_PATH/config.py && touch $CONFIG_PATH/__init__.py;
+printf "# -*- encoding: utf-8 -*-
+from pymongo import MongoClient
+from collections import namedtuple
+import configparser
+import os
+
+_parser = configparser.ConfigParser()
+_parser.read_file(open(os.path.expanduser(os.environ['RIGS_SETTINGS'])))
+
+_general = _parser['general']
+
+_database = _parser[('database %%s' %% os.environ['FLASK_ENV'])]
+_mongo_uri = 'mongodb://%%s:%%s@%%s:%%s' %% (_database['user'],_database['password'],_database['socket'],_database['port'])
+
+_allowed_domains = []
+
+_config = {
+    'PORT': 1000,
+    'SESSION_PROTECTION': 'strong',
+    'SECRET_KEY': _general['secret_key'],
+    'TESTING': _general['test'],
+    'CORS_ORIGINS': _allowed_domains
+}
+
+Config = namedtuple('Config', _config.keys())(*_config.values())
+
+_mongo_client = MongoClient(_mongo_uri)
+db_$database = _mongo_client['database']
+" >> $CONFIG_PATH/config.py;
+
+
+# Setup mongo module
+mkdir -p $MODULE_PATH &&
+touch $MODULE_PATH/__init__.py &&
 
 # Create home module
 # - expose GET /home enpoint
@@ -152,7 +193,8 @@ def get():
   pip install flask &&
   pip install flask_cors &&
   pip install flask_pymongo &&
-  pip freeze >> requirements.txt &&
+  pip install configparser &&
+  pip freeze > requirements.txt &&
   # python __init__.py
   deactivate;
 } || {
@@ -164,7 +206,12 @@ git init &&
 git config --local user.name "${app_name}"
 echo "venv" >> .gitignore &&
 git add . &&
-git commit -m "Added: basic files tree" &&
+git commit -m "Added: basic files tree"
+# Create development branches
 git checkout -b staging &&
 git checkout master &&
-git checkout -b develop
+git checkout -b develop &&
+
+cd $PYTHON_APP_PATH && pwd && 
+eval "source venv/bin/activate" &&
+python __init__.py
