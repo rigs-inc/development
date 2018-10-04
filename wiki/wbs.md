@@ -47,44 +47,6 @@ That’s right: you want to make your WBS as detailed as possible. The only way 
 
 Traditionally, you’ll find that Work Breakdown Structures are presented in flow charts that resemble website sitemaps. That format happens to work very well because it shows a hierarchy of tasks and is easily numbered and referred back to. But, some people like to list them out on whiteboards or put them in spreadsheets. The format isn’t what matters here—it’s the completeness and accuracy of the tasks included. You can create your WBS in any format that makes you comfortable.
 
-**Simple Example**
+## Example
 
-
-```
-* Design [1 day]
-    * Requirements definition
-    * Prototyping
-    * Architecture design
-    * System specification [1 day]
-        * Requirements & constraints
-        * Flow Diagram
-        * Functional spec
-
-* Development
-    * coding [1 day]
-			* Component one
-			* Component two
-			* go on....
-    * debugging
-
-* Testing
-    * Behavior tests definition
-    * Unit test 
-        * planning
-        * case preparation
-        * records
-
-* Release
-    * Staging env
-        * Deploy
-        * Quality assurance
-    * Production env
-        * Deploy
-        * Quality assurance
-```
-
-
-
-## Resources
-
-[Using a Work Breakdown](https://www.teamgantt.com/blog/how-to-estimate-projects-accurately-using-a-work-breakdown-structure)
+[Open Search WBS](https://github.com/rigs-inc/development/blob/master/wiki/wbs.md)
