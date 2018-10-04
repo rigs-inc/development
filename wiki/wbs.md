@@ -49,4 +49,4 @@ Traditionally, you’ll find that Work Breakdown Structures are presented in flo
 
 ## Example
 
-[Open Search WBS](https://github.com/rigs-inc/development/blob/master/wiki/wbs.md)
+[Open Search WBS](https://www.evernote.com/l/Aqx8AJY8VrxMQKgRVX9xCbMFWUFc0ktDGUI)
